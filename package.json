@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha milanoo/**/*.js -t 10000 --recursive -R xunit > apitest-reports.xml"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.0",
     "chai": "^3.5.0",
+    "gulp-mocha": "^4.1.0",
     "mysql": "^2.13.0",
     "node-xlsx": "^0.7.4",
     "request": "^2.81.0",

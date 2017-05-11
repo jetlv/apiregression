@@ -13,7 +13,7 @@ const stringtool = ref.stringtool;
 const buildSheet = ref.buildSheet;
 const externalApiGet = ref.externalApiGet;
 const sheetToObjectArr = ref.sheetToObjectArr;
-const spreadSheetName = 'testToLuckyDraw.xlsx';
+const spreadSheetName = __dirname + '/testToLuckyDraw.xlsx';
 const apiPath_toLuckyDraw = ref.config._hostAddress + '/promotion/easter/toLuckyDraw.htm';  //抽奖接口
 const apiPath_saveShare = ref.config._hostAddress + '/promotion/anniversary/saveShare.htm'; //分享接口
 const apiPath_getWinningCount = ref.config._hostAddress + '/promotion/easter/getWinningCount.htm'; //结果列表
@@ -80,7 +80,7 @@ describe('testToLuckyDraw', function () {
             expect(found, 'Unable to found param sheet').to.be.true;
         });
 
-        it('toLuckyDraw', function (done) {
+        it('toLuckyDraw', function () {
             //抽奖三次
             return Promise.mapSeries(ctx.paramArray, function (paramObj) {
                 let params = querystring.stringify(paramObj);
@@ -100,10 +100,8 @@ describe('testToLuckyDraw', function () {
                 }).catch(function (err) {
                     expect(false, fullPath + ' - ' + err).to.be.true;
                 });
-            }).then(function () {
-                done();
             }).catch(function (err) {
-                done(err);
+                return err;
             });
         });
 
