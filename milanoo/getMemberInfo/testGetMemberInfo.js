@@ -47,7 +47,6 @@ describe('testGetMemberInfo', function () {
             let testName = this.currentTest.title;
             let found = false;
             spreadSheets.forEach(function (sheet, index, array) {
-                console.log(sheet.name);
                 if (sheet.name == testName) {
                     ctx.paramArray = sheetToObjectArr(sheet.data);
                     found = true;
