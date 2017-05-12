@@ -97,8 +97,10 @@ describe('testToLuckyDraw', function () {
                     expect(((result.awardType > 0) && (result.awardType < 9)), '奖品类型不对').to.be.true;
                     //放入抽中的记录中
                     ctx.awardTypeArray.push(result.awardType);
+                    return Promise.delay(3000)
                 }).catch(function (err) {
                     expect(false, fullPath + ' - ' + err).to.be.true;
+                    return Promise.delay(3000)
                 });
             }).catch(function (err) {
                 return err;
@@ -119,13 +121,17 @@ describe('testToLuckyDraw', function () {
                 return rp(reqOpt).then(function (result) {
                     expect(result.code).to.equal('0');
                     expect(result.flag, '第四次抽奖返回的flag不正确').equal(2);
+                    return Promise.delay(3000)
                 }).catch(function (err) {
                     expect(false, fullPath + ' - ' + err).to.be.true;
+                    return Promise.delay(3000)
                 });
             }).then(function () {
                 done();
+                return Promise.delay(3000)
             }).catch(function (err) {
                 done(err);
+                return Promise.delay(3000)
             });
         });
 
@@ -142,13 +148,17 @@ describe('testToLuckyDraw', function () {
                 };
                 return rp(reqOpt).then(function (result) {
                     expect(result.code).equal('0');
+                    return Promise.delay(3000)
                 }).catch(function (err) {
                     expect(false, fullPath + ' - ' + err).to.be.true;
+                    return Promise.delay(3000)
                 });
             }).then(function () {
                 done();
+                return Promise.delay(3000)
             }).catch(function (err) {
                 done(err);
+                return Promise.delay(3000)
             });
         });
 
@@ -168,13 +178,17 @@ describe('testToLuckyDraw', function () {
                     expect(result.flag, '分享后第四次抽奖返回的flag不正确').equal(0);
                     expect(((result.awardType > 0) && (result.awardType < 9)), '奖品类型不对').to.be.true;
                     ctx.awardTypeArray.push(result.awardType);
+                    return Promise.delay(3000)
                 }).catch(function (err) {
                     expect(false, fullPath + ' - ' + err).to.be.true;
+                    return Promise.delay(3000)
                 });
             }).then(function () {
                 done();
+                return Promise.delay(3000)
             }).catch(function (err) {
                 done(err);
+                return Promise.delay(3000)
             });
         });
 
