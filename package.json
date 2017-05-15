@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha milanoo/**/*.js -t 10000 --recursive -R xunit > apitest-reports.xml"
+    "test": "./node_modules/.bin/mocha milanoo/**/*.js -t 30000 --recursive -R xunit > apitest-reports.xml"
   },
   "author": "",
   "license": "ISC",
